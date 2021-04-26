@@ -1,7 +1,6 @@
 import requests, json
 from requests.auth import HTTPBasicAuth
 
-API_KEY='ad438132-7336-4c69-8c29-c7bc00cb5996'
 
 #for creating records the fields that can be multiple, should actually be not multiple and have
 #a single value, like e-mail to be one only. Otherwise multiple values should be specified as an "array"
