@@ -1,17 +1,6 @@
 import requests, json
 from requests.auth import HTTPBasicAuth
 
-
-#for creating records the fields that can be multiple, should actually be not multiple and have
-#a single value, like e-mail to be one only. Otherwise multiple values should be specified as an "array"
-data={"timeZone": "Europe/Kiev", "fields":{"Name":"Mauricio","Email":"name@example.com","Address":"Germany","Phone":"911","Email 2":["example@gmail.com"]}}
-
-#y=requests.get(URL1, auth=HTTPBasicAuth(USER, API_KEY))
-
-folder='5fa2bc58b297f0505fc3eb9b' #incoming forms
-#folder='5ef1f9785cfadd25c1764a87' #contacts
-# record ID sarah incoming fomrs 604f82169500e3013517ee52
-
 def create_record(folder,data,USER,API_KEY):
     URL='https://nethunt.com/api/v1/zapier/actions/create-record/'+folder
     y=requests.post(URL, json=data,auth=HTTPBasicAuth(USER, API_KEY))
@@ -119,23 +108,3 @@ def list_fields(folder,USER,API_KEY):
     print(y.json)
     y=json.dumps(y.text)
     print(y)
-
-#create_record(folder,data,USER,API_KEY)
-#list_folders(USER,API_KEY)
-#query_search(folder,USER,API_KEY,'Surgeon','Title','10')
-#list_fields(folder,USER,API_KEY)
-
-##Find recently updated records
-limit=2
-YYYY_MM_DD='2015_12_26'
-fields=['Email','Email 2']
-record='60671827da70705e2d175f8b'
-query='Sarah'
-field='Name'
-#recent_changes_in_record(folder,USER,API_KEY,fields,YYYY_MM_DD,limit)
-#query_search(folder,USER,API_KEY,query,field,limit)
-#recent_call_logs(folder,USER,API_KEY,YYYY_MM_DD,limit)
-#recent_drive_files(folder,USER,API_KEY,YYYY_MM_DD,limit)
-###missing google drive and call logs
-
-
